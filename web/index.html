@@ -1,61 +1,65 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Certificados CFJI</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="page">
-      <header class="site-header">
-        <div class="header-banner">
-          <img src="assets/header-ejrlb.png" alt="Encabezado Escuela Judicial Rodrigo Lara Bonilla" />
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Certificados CFJI</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="header-banner">
+        <img src="assets/header-ejrlb.png" alt="Encabezado Escuela Judicial Rodrigo Lara Bonilla" />
+      </div>
+      <div class="header-content">
+        <div>
+          <h1>Consulta de Certificados Cursos de Formación Judicial Inicial</h1>
+          <p class="subtitle">Busqueda por cédula, nombre o apellido y genera la certificación.</p>
         </div>
-        <div class="header-content">
-          <div>
-            <h1>Consulta de Certificados CFJI</h1>
-            <p class="subtitle">Busca por cédula, nombre o apellido y genera la certificación.</p>
-          </div>
+      </div>
+    </header>
+
+    <section class="card">
+      <form id="search-form" class="search-form">
+        <label class="input-label" for="query">Número de cédula o nombre</label>
+        <div class="input-row">
+          <input id="query" name="query" type="text" placeholder="Ej. 93.201.349 o VÁSQUEZ HUEPO" required />
+          <button type="submit">Buscar</button>
         </div>
-      </header>
+        <p class="hint">Si la búsqueda es por nombre, puedes escribir nombre y/o apellido.</p>
+        <p class="hint">Derechos Reservados - Creaciones Manotas</p>
+      </form>
+    </section>
 
-      <section class="card">
-        <form id="search-form" class="search-form">
-          <label class="input-label" for="query">Número de cédula o nombre</label>
-          <div class="input-row">
-            <input id="query" name="query" type="text" placeholder="Ej. 93.201.349 o VÁSQUEZ HUEPO" required />
-            <button type="submit">Buscar</button>
-          </div>
-          <p class="hint">Si la búsqueda es por nombre, puedes escribir nombre y/o apellido.</p>
-        </form>
-      </section>
+    <section id="results" class="card hidden">
+      <div class="section-header">
+        <h2>Resultados</h2>
+        <span id="result-count" class="tag">0 registros</span>
+      </div>
+      <div id="results-content"></div>
+    </section>
 
-      <section id="results" class="card hidden">
-        <div class="section-header">
-          <h2>Resultados</h2>
-          <span id="result-count" class="tag">0 registros</span>
-        </div>
-        <div id="results-content"></div>
-      </section>
+    <section id="detail" class="card hidden">
+      <div class="section-header">
+        <h2>Detalle de certificación</h2>
+        <button id="download-pdf" class="secondary">Descargar PDF</button>
+      </div>
+      <div id="detail-content"></div>
+    </section>
 
-      <section id="detail" class="card hidden">
-        <div class="section-header">
-          <h2>Detalle de certificación</h2>
-          <button id="download-pdf" class="secondary">Descargar PDF</button>
-        </div>
-        <div id="detail-content"></div>
-      </section>
+    <footer class="footer">
+      <p>Consulta interna para certificaciones CFJI.</p>
+    </footer>
+  </div>
 
-      <footer class="footer">
-        <p>Consulta interna para certificaciones CFJI.</p>
-      </footer>
-    </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@pdf-lib/fontkit@1.1.1/dist/fontkit.umd.min.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@pdf-lib/fontkit@1.1.1/dist/fontkit.umd.min.js"></script>
-    <script src="config.js"></script>
-    <script src="app.js"></script>
-  </body>
 </html>
